@@ -4,10 +4,9 @@ class ConsumersService {
   constructor() {}
 
   composeConsumer(payload) {
-    if (!this.isConsumerValid()) {
+    if (!this.isConsumerValid(payload)) {
       return null;
     }
-
     return {
       fname: payload.fname,
       lname: payload.lname,

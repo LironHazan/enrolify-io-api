@@ -15,7 +15,7 @@ module.exports = {
     const consumer = consumerService.composeConsumer(request.payload);
     if (!consumer) {
       console.log('error');
-      return h.response({err: 'missing params'}).status(400);
+      return h.response({err: 'missing params'}).code(400);
     }
     return Consumer.create(consumer)
       .then((consumer) => h.response({consumer}))
