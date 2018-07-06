@@ -8,7 +8,7 @@ module.exports = [
   },
   {
     method: 'POST',
-    path: '/consumer',
+    path: '/consumer/add',
     handler: controller.createConsumer
   }
 ];

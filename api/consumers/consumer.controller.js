@@ -1,6 +1,6 @@
 const Consumer = require('./consumer.model');
-const ConsumersService = require('./consumer.service');
-const consumerService = new ConsumersService();
+const Util = require('../services/util');
+const util = new Util();
 
 module.exports = {
 
@@ -12,7 +12,8 @@ module.exports = {
   },
 
   createConsumer: (request, h) => {
-    const consumer = consumerService.composeConsumer(request.payload);
+    const keys = ['fname', 'lname', 'mail', 'subscriptionType', 'providerId', 'subscriptionId'];
+    const consumer = util.composeModel(request.payload, keys);
     if (!consumer) {
       console.log('error');
       return h.response({err: 'missing params'}).code(400);

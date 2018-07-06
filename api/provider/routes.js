@@ -1,15 +1,15 @@
 
-const controller = require('./provider');
+const controller = require('./provider.controller');
 
 module.exports = [
   {
     method: 'GET',
-    path: '/service-provider',
+    path: '/provider',
     handler: controller.getProvider
   },
   {
     method: 'POST',
-    path: '/service-provider',
-    handler: controller.updateProvider
+    path: '/provider/create',
+    handler: controller.createProvider
   }
 ];
