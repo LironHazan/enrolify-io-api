@@ -2,10 +2,13 @@
 
 Rest API developed using hapi (a nodejs framework) and 
 MongoDb - models/schemas using mongoose.
+Using Auth0 for authentication.
 
 Prerequisites:
--  nvm installed
-- mongodb 
+-  install nvm
+- install mongodb 
+
+(tbd: will be dockerized soon)
 
 To start:
 - nvm install
