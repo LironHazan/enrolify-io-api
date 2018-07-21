@@ -4,7 +4,6 @@ class Util {
   constructor() {}
 
   composeModel(payload, keys) {
-    console.log(payload);
     if(keys.length === 0 || Object.keys(payload).length === 0) {
       return null;
     }

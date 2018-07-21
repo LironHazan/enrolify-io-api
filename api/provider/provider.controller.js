@@ -5,14 +5,16 @@ const util = new Util();
 module.exports = {
 
   getProvider: (request, h) => {
-    return h.response({});
+    console.log(request.payload);
+    return Provider.findById(request.payload)
+        .then(result => h.response({result}));
   },
 
   createProvider: (request, h) => {
-    const keys = ['fname', 'lname', 'companyName', 'mail', 'type'];
+    const keys = ['fname', 'lname', 'companyName', 'email', 'type'];
+    console.log(request.payload);
     const provider = util.composeModel(request.payload, keys);
     if (!provider) {
-      console.log('error');
       return h.response({err: 'missing params'}).code(400);
     }
     return Provider.create(provider)

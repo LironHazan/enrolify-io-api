@@ -4,7 +4,7 @@ const controller = require('./provider.controller');
 module.exports = [
   {
     method: 'GET',
-    path: '/provider',
+    path: '/provider/{id?}',
     handler: controller.getProvider
   },
   {
