@@ -1,5 +1,5 @@
 const Provider = require('./provider.model');
-const Util = require('../services/util');
+const Util = require('../util/schema-validator');
 const util = new Util();
 
 module.exports = {

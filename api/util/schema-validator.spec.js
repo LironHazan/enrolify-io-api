@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const Util = require('./util');
+const Util = require('./schema-validator');
 const util = new Util();
 
 describe('testing composeModel()', () =>  {

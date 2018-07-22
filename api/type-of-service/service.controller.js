@@ -1,4 +1,4 @@
-const Consumer = require('./consumer.model');
+const Consumer = require('./service.model');
 const Util = require('../util/schema-validator');
 const util = new Util();
 

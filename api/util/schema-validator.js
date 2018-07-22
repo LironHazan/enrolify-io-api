@@ -1,5 +1,5 @@
 
-class Util {
+class SchemaValidator {
 
   constructor() {}
 
@@ -25,4 +25,4 @@ class Util {
 }
 
 
-module.exports =  Util;
+module.exports =  SchemaValidator;
