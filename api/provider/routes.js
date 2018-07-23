@@ -11,5 +11,10 @@ module.exports = [
     method: 'POST',
     path: '/provider/create',
     handler: controller.createProvider
+  },
+  {
+    method: 'POST',
+    path: '/provider/update',
+    handler: controller.updateProvider
   }
 ];
