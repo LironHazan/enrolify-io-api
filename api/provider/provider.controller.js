@@ -5,8 +5,8 @@ const util = new Util();
 module.exports = {
 
   getProvider: (request, h) => {
-    console.log(request.payload);
-    return Provider.findById(request.payload)
+    const { query } = request;
+    return Provider.findById(query.id)
         .then(result => h.response({result}));
   },
 
@@ -23,17 +23,12 @@ module.exports = {
   },
 
   updateProvider: (request, h) => {
-    const keys = ['fname', 'lname', 'companyName', 'email', 'type'];
-    console.log(request.payload);
-    const provider = util.composeModel(request.payload, keys);
-    if (!provider) {
+    const provider = request.payload;
+      if (!provider) {
       return h.response({err: 'missing params'}).code(400);
     }
     return Provider.update(provider)
-      .then((response) => {
-          console.log(response);
-          h.response({provider})
-      })
+      .then((response) => h.response(provider))
       .catch((err) => h.response({err}));
     }
 

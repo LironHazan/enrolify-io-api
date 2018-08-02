@@ -6,9 +6,7 @@ Using Auth0 for authentication.
 
 Prerequisites:
 -  install nvm
-- install mongodb 
-
-(tbd: will be dockerized soon)
+- install mongodb / docker run --name mongo -d -p 27017:27017 mongo
 
 To start:
 - nvm install
