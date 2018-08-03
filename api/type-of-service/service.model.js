@@ -2,7 +2,6 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Joi = require('joi');
 
 
 const serviceModel = new Schema({

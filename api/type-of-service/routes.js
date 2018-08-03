@@ -4,11 +4,11 @@ module.exports = [
   {
     method: 'GET',
     path: '/consumers',
-    handler: controller.listConsumers
+    handler: () => {}
   },
   {
     method: 'POST',
     path: '/consumer/add',
-    handler: controller.createConsumer
+    handler: () => {}
   }
 ];

@@ -1,6 +1,4 @@
 const Consumer = require('./consumer.model');
-const Util = require('../util/schema-validator');
-const util = new Util();
 
 module.exports = {
 
@@ -12,8 +10,6 @@ module.exports = {
   },
 
   createConsumer: (request, h) => {
-    const keys = ['fname', 'lname', 'mail', 'subscriptionType', 'providerId', 'subscriptionId'];
-    const consumer = util.composeModel(request.payload, keys);
     if (!consumer) {
       console.log('error');
       return h.response({err: 'missing params'}).code(400);

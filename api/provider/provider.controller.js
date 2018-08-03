@@ -1,6 +1,5 @@
 const Provider = require('./provider.model');
-const Util = require('../util/schema-validator');
-const util = new Util();
+const schema = require('./provider');
 
 module.exports = {
 
@@ -11,24 +10,23 @@ module.exports = {
   },
 
   createProvider: (request, h) => {
-    const keys = ['fname', 'lname', 'companyName', 'email', 'type'];
-    console.log(request.payload);
-    const provider = util.composeModel(request.payload, keys);
-    if (!provider) {
+    const result = schema.validate(request.payload);
+    if (result.error) {
       return h.response({err: 'missing params'}).code(400);
     }
-    return Provider.create(provider)
+    return Provider.create(result.value)
       .then((provider) => h.response({provider}))
       .catch((err) => h.response({err}));
   },
 
   updateProvider: (request, h) => {
-    const provider = request.payload;
-      if (!provider) {
+      const provider = request.payload;
+      const result = schema.validate(provider);
+      if (result.error) {
       return h.response({err: 'missing params'}).code(400);
     }
     return Provider.update(provider)
-      .then((response) => h.response(provider))
+      .then(() => h.response(result.value))
       .catch((err) => h.response({err}));
     }
 
