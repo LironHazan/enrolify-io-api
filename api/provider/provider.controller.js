@@ -20,12 +20,11 @@ module.exports = {
   },
 
   updateProvider: (request, h) => {
-      const provider = request.payload;
-      const result = schema.validate(provider);
+      const result = schema.validate(request.payload);
       if (result.error) {
       return h.response({err: 'missing params'}).code(400);
     }
-    return Provider.update(provider)
+    return Provider.update(result.value)
       .then(() => h.response(result.value))
       .catch((err) => h.response({err}));
     }

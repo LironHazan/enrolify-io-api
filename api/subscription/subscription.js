@@ -2,11 +2,12 @@ const Joi = require('joi');
 
 const schema = Joi.object().keys({
     _id: Joi.string(),
-    providerId: Joi.string().required(),
+    serviceId: Joi.string().required(),
     name: Joi.string().required(),
-    duration: Joi.number().required(),
-    maxParticipators: Joi.number().required(),
-    subscriptionType: Joi.string().required(),
+    type: Joi.string().required(),
+    maxTimeAttendance: Joi.number().required(),
+    willReset: Joi.boolean().required(),
+    lastRenewal: Joi.date().timestamp().raw().required(),
 }).with('fname', 'lname');
 
 const validate = (value, cb) => {

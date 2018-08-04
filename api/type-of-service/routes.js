@@ -3,12 +3,22 @@ const controller = require('./service.controller');
 module.exports = [
   {
     method: 'GET',
-    path: '/consumers',
-    handler: () => {}
+    path: '/list-services',
+    handler: controller.getService
   },
   {
     method: 'POST',
-    path: '/consumer/add',
-    handler: () => {}
+    path: '/service/add',
+    handler: controller.createService
+  },
+  {
+    method: 'POST',
+    path: '/service/update',
+    handler: controller.updateService
+  },
+  {
+    method: 'DELETE',
+    path: '/service/remove',
+    handler: controller.removeService
   }
 ];

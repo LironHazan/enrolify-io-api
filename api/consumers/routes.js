@@ -10,5 +10,10 @@ module.exports = [
     method: 'POST',
     path: '/consumer/add',
     handler: controller.createConsumer
+  },
+  {
+    method: 'POST',
+    path: '/consumer/update',
+    handler: controller.updateConsumer
   }
 ];
