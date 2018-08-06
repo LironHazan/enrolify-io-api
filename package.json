@@ -2,11 +2,9 @@
   "name": "enrolify-io",
   "version": "1.0.0",
   "private": true,
-  "description": "",
-  "main": "server.js",
+  "description": "enrolify monorepo",
   "scripts": {
-    "start": "nodemon server.js",
-    "test": "mocha \"api/**/*.spec.js\""
+    "echo": "echo rock on"
   },
   "author": "Liron Hazan",
   "license": "MIT",
