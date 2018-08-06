@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const serviceModel = new Schema({
+const subscriptionModel = new Schema({
   serviceId: {type: Schema.Types.ObjectId, required: true},
   name: {type: String, required: true},
   type: {type: String, required: true},
@@ -12,4 +12,4 @@ const serviceModel = new Schema({
   lastRenewal: {type: Date, required: true},
 });
 
-module.exports = mongoose.model('Service', serviceModel, 'services');
+module.exports = mongoose.model('Subscription', subscriptionModel, 'subscriptions');

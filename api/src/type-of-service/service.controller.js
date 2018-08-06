@@ -1,4 +1,5 @@
 const Service = require('./service.model');
+const schema = require('./service-type');
 
 module.exports = {
 

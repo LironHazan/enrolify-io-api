@@ -13,7 +13,9 @@ To start:
 - nvm use
 - npm start
 
-
+using docker image:
+I have used the alpine-node image, if you don;t have it run:
+docker run mhart/alpine-node yarn
 
 
 

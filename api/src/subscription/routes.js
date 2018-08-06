@@ -1,4 +1,4 @@
-const controller = require('./service.controller');
+const controller = require('./subscription.controller');
 
 module.exports = [
   {

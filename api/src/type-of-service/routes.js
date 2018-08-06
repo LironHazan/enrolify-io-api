@@ -19,6 +19,6 @@ module.exports = [
   {
     method: 'DELETE',
     path: '/service/remove',
-    handler: controller.removeService
+    handler: () => {}
   }
 ];

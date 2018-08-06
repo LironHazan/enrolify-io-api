@@ -1,0 +1,27 @@
+{
+  "name": "enrolify-rest",
+  "version": "1.0.0",
+  "private": true,
+  "description": "enrolify REST API",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "prod": "NODE_ENV=production yarn start",
+    "dev": "NODE_ENV=development nodemon --exec yarn start",
+    "test": "mocha \"src/**/*.spec.js\""
+  },
+  "author": "Liron Hazan",
+  "license": "MIT",
+  "dependencies": {
+    "hapi": "^17.5.2",
+    "hapi-auth-jwt2": "github:salzhrani/hapi-auth-jwt2#v-17",
+    "joi": "^13.4.0",
+    "jwks-rsa": "^1.3.0",
+    "mongoose": "^5.1.7"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.3"
+  }
+}

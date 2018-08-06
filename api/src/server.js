@@ -2,9 +2,9 @@
 
 const Hapi = require('hapi');
 const mongoose = require('mongoose');
-const routes = require('./api/routes');
-const config = require('./conf.json');
-const auth0Config = require('./conf.json').auth0;
+const routes = require('./routes');
+const config = require('../conf.json');
+const auth0Config = require('../conf.json').auth0;
 const hapiAuthJWT = require('hapi-auth-jwt2');
 const jwksRsa = require('jwks-rsa');
 

@@ -1,4 +1,5 @@
 const Subscription = require('./subscription.model');
+const schema = require('./subscription');
 
 module.exports = {
 
