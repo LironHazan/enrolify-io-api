@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const providerModel = new Schema({
+const teacherModel = new Schema({
   fname: {type: String, required: true},
   lname: {type: String, required: true},
   companyName: {type: String, required: true},
@@ -11,4 +11,4 @@ const providerModel = new Schema({
   type: {type: String, required: true}
 });
 
-module.exports = mongoose.model('Provider', providerModel, 'providers');
+module.exports = mongoose.model('Provider', teacherModel, 'providers');

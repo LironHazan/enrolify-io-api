@@ -1,11 +1,11 @@
-const provider = require('./provider/routes');
-const consumers = require('./consumers/routes');
-const serviceType = require('./type-of-service/routes');
+const teacher = require('./teachers/routes');
+const students = require('./students/routes');
+const classType = require('./class-type/routes');
 const subscription = require('./subscription/routes');
 
 module.exports = [
-  ...provider,
-  ...consumers,
-  ...serviceType,
+  ...teacher,
+  ...students,
+  ...classType,
   ...subscription
 ];

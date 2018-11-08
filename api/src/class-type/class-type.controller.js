@@ -1,26 +1,27 @@
-const Service = require('./service.model');
-const schema = require('./service-type');
+const Service = require('./class.model');
+const schema = require('./class-type');
 
 module.exports = {
 
-// list services by provider id
-    getService: (request, h) => {
+// list services by teachers id
+    
+    getClass: (request, h) => {
         const { query } = request;
         return Service.findById(query.id)
             .then(result => h.response({result}));
     },
 
-    createService: (request, h) => {
+    createClass: (request, h) => {
         const result = schema.validate(request.payload);
         if (result.error) {
             return h.response({err: 'missing params'}).code(400);
         }
         return Service.create(result.value)
-            .then((provider) => h.response({provider}))
+            .then((classType) => h.response({classType}))
             .catch((err) => h.response({err}));
     },
 
-    updateService: (request, h) => {
+    updateClass: (request, h) => {
         const result = schema.validate(request.payload);
         if (result.error) {
             return h.response({err: 'missing params'}).code(400);
@@ -31,7 +32,7 @@ module.exports = {
     },
 
 
-    // remove service and its subscription per provider_id -->  service_id
+    // remove service and its subscription per class_id -->  service_id
     // what if there's a consumer with active subscription? TDB
 
     // removeService: (request, h) => {

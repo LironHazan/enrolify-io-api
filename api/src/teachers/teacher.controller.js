@@ -1,25 +1,25 @@
-const Provider = require('./provider.model');
-const schema = require('./provider');
+const Provider = require('./teacher.model');
+const schema = require('./teacher');
 
 module.exports = {
 
-  getProvider: (request, h) => {
+  getTeacher: (request, h) => {
     const { query } = request;
     return Provider.findById(query.id)
         .then(result => h.response({result}));
   },
 
-  createProvider: (request, h) => {
+  createTeacher: (request, h) => {
     const result = schema.validate(request.payload);
     if (result.error) {
       return h.response({err: 'missing params'}).code(400);
     }
     return Provider.create(result.value)
-      .then((provider) => h.response({provider}))
+      .then((teacher) => h.response({teacher}))
       .catch((err) => h.response({err}));
   },
 
-  updateProvider: (request, h) => {
+  updateTeacher: (request, h) => {
       const result = schema.validate(request.payload);
       if (result.error) {
       return h.response({err: 'missing params'}).code(400);

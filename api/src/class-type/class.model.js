@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-const serviceModel = new Schema({
+const classModel = new Schema({
   name: {type: String, required: true},
   duration: {type: Number, required: true},
   maxParticipators: {type: Number, required: true},
@@ -12,4 +12,4 @@ const serviceModel = new Schema({
   providerId: {type: Schema.Types.ObjectId, required: true},
 });
 
-module.exports = mongoose.model('Service', serviceModel, 'services');
+module.exports = mongoose.model('Service', classModel, 'services');

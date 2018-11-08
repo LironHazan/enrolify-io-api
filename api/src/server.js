@@ -10,7 +10,10 @@ const jwksRsa = require('jwks-rsa');
 
 const server = Hapi.server({
   port: config.port,
-  host: config.host
+  host: config.host,
+  routes: {
+    cors: true
+    }
 });
 
 // const validateUser = (decoded, request, callback) => {

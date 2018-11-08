@@ -1,27 +1,27 @@
-const Consumer = require('./consumer.model');
-const schema = require('./consumer');
+const Consumer = require('./students.model');
+const schema = require('./student');
 
 module.exports = {
 
-  listConsumers: (request, h) => {
+  listStudents: (request, h) => {
     const { query } = request;
     return Consumer.find({providerId: query.id})
       .exec()
-      .then((consumers) => h.response({consumers}))
+      .then((students) => h.response({students}))
       .catch((err) => h.response({err}));
   },
 
-  createConsumer: (request, h) => {
+  createStudent: (request, h) => {
       const result = schema.validate(request.payload);
       if (result.error) {
       return h.response({err: 'missing params'}).code(400);
     }
     return Consumer.create(result.value)
-      .then((consumer) => h.response({consumer}))
+      .then((student) => h.response({student}))
       .catch((err) => h.response({err}));
   },
 
-  updateConsumer: (request, h) => {
+  updateStudent: (request, h) => {
         const result = schema.validate(request.payload);
         if (result.error) {
             return h.response({err: 'missing params'}).code(400);
