@@ -8,12 +8,12 @@ module.exports = [
   },
   {
     method: 'POST',
-    path: '/consumer/add',
+    path: '/students/add',
     handler: controller.createStudent
   },
   {
     method: 'POST',
-    path: '/consumer/update',
+    path: '/students/update',
     handler: controller.updateStudent
   }
 ];
