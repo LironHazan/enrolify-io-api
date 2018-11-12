@@ -1,0 +1,15 @@
+.app {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  .flex-col {
+    display: flex;
+    flex-direction: column;
+  }
+  .form {
+    padding: 10px;
+  }
+  .item {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 20rem;
+  }
+}
