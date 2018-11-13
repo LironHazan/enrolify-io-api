@@ -12,9 +12,8 @@ class StudentForm extends React.Component {
     };
 
     render () {
-        console.log(this.state);
         return <div>
-            <form className="flex-col" onSubmit={(e) => e.preventDefault}>
+            <form className="flex-col">
                 <label className="item">
                     <TextField
                         autoFocus
@@ -61,7 +60,7 @@ class StudentForm extends React.Component {
                         onBlur={this.handleChange('bday')}/>
                 </label>
                 <DialogActions>
-                    <Button type="submit" value="Submit">
+                    <Button onClick={this.props.handleFormSubmit(this.state)}>
                         Save
                     </Button>
                     <Button onClick={this.props.close} color="primary">
