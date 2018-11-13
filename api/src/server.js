@@ -16,35 +16,35 @@ const server = Hapi.server({
     }
 });
 
-// const validateUser = (decoded, request, callback) => {
-//   console.log("Decoded", decoded);
-//   if (decoded && decoded.sub) {
-//     return callback(null, true, {});
-//   }
-//   return callback(null, false, {});
-// };
+const validateUser = (decoded, request, callback) => {
+  console.log("Decoded", decoded);
+  if (decoded && decoded.sub) {
+    return callback(null, true, {});
+  }
+  return callback(null, false, {});
+};
 
 const init = async () => {
   mongoose.connect(config.db, { useNewUrlParser: true })
     .then(() => console.log('MongoDB connected...'))
     .catch(err => console.error(err));
 
-  // await server.register(hapiAuthJWT);
-  // server.auth.strategy('jwt', 'jwt', {
-  //   key: jwksRsa.hapiJwt2Key({
-  //     cache: true,
-  //     rateLimit: true,
-  //     jwksRequestsPerMinute: 5,
-  //     jwksUri: `${auth0Config.domain}/.well-known/jwks.json`
-  //   }),
-  //   verifyOptions: {
-  //     audience: `${auth0Config.audience}`,
-  //     issuer: `${auth0Config.domain}`,
-  //     algorithms: ['RS256']
-  //   },
-  //   validate: validateUser
-  // });
-  // server.auth.default('jwt');
+  await server.register(hapiAuthJWT);
+  server.auth.strategy('jwt', 'jwt', {
+    key: jwksRsa.hapiJwt2Key({
+      cache: true,
+      rateLimit: true,
+      jwksRequestsPerMinute: 5,
+      jwksUri: `${auth0Config.domain}/.well-known/jwks.json`
+    }),
+    verifyOptions: {
+      audience: `${auth0Config.audience}`,
+      issuer: `${auth0Config.domain}`,
+      algorithms: ['RS256']
+    },
+    validate: validateUser
+  });
+  server.auth.default('jwt');
 
   await server.start();
   return server;
