@@ -5,7 +5,7 @@ import { FETCH_STUDENTS,
     SAVE_STUDENT_ERROR,
     DIALOG_TOGGLE,
     EDIT_STUDENT
-} from '../types';
+} from '../../types';
 
 const API = "http://localhost:3000";
 

@@ -5,7 +5,7 @@ import {fetchStudents,
     saveStudent,
     toggleDialog,
     editStudent,
-    setSaveStudentError} from '../../../store/actions/students';
+    setSaveStudentError} from '../../../store/feature/students/students.action';
 import StudentsList  from './students-list'
 import StudentForm from "../forms/student-form";
 import Dialog from '@material-ui/core/Dialog';
