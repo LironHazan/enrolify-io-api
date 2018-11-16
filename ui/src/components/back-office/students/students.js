@@ -1,21 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
-import {fetchStudents,
+import {
+    fetchStudents as fetchStudentsAction,
     saveStudent,
-    toggleDialog,
-    editStudent,
-    setSaveStudentError} from '../../../store/feature/students/students.action';
+    toggleDialog} from '../../../store/feature/students/students.action';
 import StudentsList  from './students-list'
 import StudentForm from "../forms/student-form";
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import {fetchStudents} from './students.service';
 
 class Students extends React.Component {
 
     componentDidMount() {
-        this.props.fetchStudents();
+        this.props.fetchStudentsAction(fetchStudents);
     }
 
     handleOpen = () => {
@@ -67,6 +67,6 @@ class Students extends React.Component {
 
 export default connect( state => ({ //mapping state to props
     store: state.students,
-}), { fetchStudents, saveStudent, toggleDialog, editStudentAction: editStudent, setSaveStudentError })(Students);
+}), { fetchStudentsAction, saveStudent, toggleDialog })(Students);
 
 

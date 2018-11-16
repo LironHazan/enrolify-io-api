@@ -15,7 +15,7 @@ export default (state = INITIAL_STATE, action) => {
                 isFetching: true,
                 savingStudent: false
             };
-        case "FETCH_STUDENTS_COMPLETION":
+        case "STUDENTS_FETCH_ALL_SUCCESS":
             return {
                 ...state,
                 students: action.payload,
