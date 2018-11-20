@@ -37,7 +37,7 @@ export default (state = INITIAL_STATE, action) => {
                 ...state,
                 savingStudent: true
             };
-        case "DIALOG_TOGGLE":
+        case "STUDENTS_DIALOG_TOGGLE":
             return {
                 ...state,
                 open: action.payload,

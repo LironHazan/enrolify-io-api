@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import {
     fetchStudents as fetchStudentsAction,
-    saveStudent,
+    saveStudent as saveStudentsAction,
     toggleDialog} from '../../../store/feature/students/students.action';
 import StudentsList  from './students-list'
 import StudentForm from "../forms/student-form";
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import {fetchStudents} from './students.service';
+import {fetchStudents, saveStudents} from './students.service';
 
 class Students extends React.Component {
 
@@ -28,12 +28,12 @@ class Students extends React.Component {
     };
 
     cleanupErr() {
-        this.props.setSaveStudentError({message: null});
+        // this.props.setSaveStudentError({message: null});
     }
 
     onStudentAdd = (student) => (event) => {
-        event.preventDefault();
-        this.props.saveStudent(student);
+        this.props.saveStudentsAction(student, async () => saveStudents(student),
+            [this.props.toggleDialog(false)]);
     };
 
     renderStudents = (students) => {
@@ -67,6 +67,6 @@ class Students extends React.Component {
 
 export default connect( state => ({ //mapping state to props
     store: state.students,
-}), { fetchStudentsAction, saveStudent, toggleDialog })(Students);
+}), { fetchStudentsAction, saveStudentsAction, toggleDialog })(Students);
 
 
