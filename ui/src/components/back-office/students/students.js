@@ -10,12 +10,11 @@ import StudentForm from "../forms/student-form";
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import {fetchStudents, saveStudents} from './students.service';
 
 class Students extends React.Component {
 
     componentDidMount() {
-        this.props.fetchStudentsAction(fetchStudents);
+        this.props.fetchStudentsAction();
     }
 
     handleOpen = () => {
@@ -32,8 +31,8 @@ class Students extends React.Component {
     }
 
     onStudentAdd = (student) => (event) => {
-        this.props.saveStudentsAction(student, async () => saveStudents(student),
-            [this.props.toggleDialog(false)]);
+        this.props.saveStudentsAction(student,
+            [this.props.toggleDialog(false), this.props.fetchStudentsAction()]);
     };
 
     renderStudents = (students) => {

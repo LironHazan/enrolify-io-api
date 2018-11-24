@@ -1,15 +1,18 @@
 import { types } from '../../types';
 const { STUDENTS_FETCH_ALL, STUDENTS_SAVE_STUDENT, STUDENTS_DIALOG_TOGGLE} = types;
 
-export const fetchStudents = (asyncFn) => ({
-    type: STUDENTS_FETCH_ALL.SOURCE,
-    asyncFn
+export const fetchStudents = () => ({
+    type: STUDENTS_FETCH_ALL.SOURCE
 });
-
-export const saveStudent = (payload, asyncFn, sideEffects) => ({
-    type: STUDENTS_SAVE_STUDENT,
+/**
+ * 
+ * @param {*} payload 
+ * @param {Function} asyncFn
+ * @param {*} sideEffects 
+ */
+export const saveStudent = (payload, sideEffects) => ({
+    type: STUDENTS_SAVE_STUDENT.SOURCE,
     payload,
-    asyncFn,
     sideEffects
 });
 
