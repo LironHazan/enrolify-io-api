@@ -1,6 +1,15 @@
-export const FETCH_STUDENTS = 'FETCH_STUDENTS';
-export const FETCH_STUDENTS_COMPLETION = 'FETCH_STUDENTS_COMPLETION';
-export const SAVE_STUDENT = 'SAVE_STUDENT';
-export const SAVE_STUDENT_ERROR = 'SAVE_STUDENT_ERROR';
-export const DIALOG_TOGGLE = 'DIALOG_TOGGLE';
-export const EDIT_STUDENT = 'EDIT_STUDENT';
+
+const apiAction = (actionType) => ({
+    SOURCE: `${actionType}`,
+    SUCCESS: `${actionType}_SUCCESS`,
+    ERROR: `${actionType}_ERROR`,
+});
+
+export const STUDENTS = 'STUDENTS';
+export const types = {
+    // students:
+    STUDENTS_DIALOG_TOGGLE: 'STUDENTS_DIALOG_TOGGLE',
+    STUDENTS_FETCH_ALL: apiAction('STUDENTS_FETCH_ALL'),
+    STUDENTS_SAVE_STUDENT: apiAction('STUDENTS_SAVE_STUDENT'),
+    STUDENTS_EDIT_STUDENT: apiAction('STUDENTS_EDIT_STUDENT')
+};

@@ -15,7 +15,7 @@ export default (state = INITIAL_STATE, action) => {
                 isFetching: true,
                 savingStudent: false
             };
-        case "FETCH_STUDENTS_COMPLETION":
+        case "STUDENTS_FETCH_ALL_SUCCESS":
             return {
                 ...state,
                 students: action.payload,
@@ -37,7 +37,7 @@ export default (state = INITIAL_STATE, action) => {
                 ...state,
                 savingStudent: true
             };
-        case "DIALOG_TOGGLE":
+        case "STUDENTS_DIALOG_TOGGLE":
             return {
                 ...state,
                 open: action.payload,

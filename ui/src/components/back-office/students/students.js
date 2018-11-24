@@ -1,11 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
-import {fetchStudents,
-    saveStudent,
-    toggleDialog,
-    editStudent,
-    setSaveStudentError} from '../../../store/actions/students';
+import {
+    fetchStudents as fetchStudentsAction,
+    saveStudent as saveStudentsAction,
+    toggleDialog} from '../../../store/feature/students/students.action';
 import StudentsList  from './students-list'
 import StudentForm from "../forms/student-form";
 import Dialog from '@material-ui/core/Dialog';
@@ -15,7 +14,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 class Students extends React.Component {
 
     componentDidMount() {
-        this.props.fetchStudents();
+        this.props.fetchStudentsAction();
     }
 
     handleOpen = () => {
@@ -28,12 +27,12 @@ class Students extends React.Component {
     };
 
     cleanupErr() {
-        this.props.setSaveStudentError({message: null});
+        // this.props.setSaveStudentError({message: null});
     }
 
     onStudentAdd = (student) => (event) => {
-        event.preventDefault();
-        this.props.saveStudent(student);
+        this.props.saveStudentsAction(student,
+            [this.props.toggleDialog(false), this.props.fetchStudentsAction()]);
     };
 
     renderStudents = (students) => {
@@ -67,6 +66,6 @@ class Students extends React.Component {
 
 export default connect( state => ({ //mapping state to props
     store: state.students,
-}), { fetchStudents, saveStudent, toggleDialog, editStudentAction: editStudent, setSaveStudentError })(Students);
+}), { fetchStudentsAction, saveStudentsAction, toggleDialog })(Students);
 
 
