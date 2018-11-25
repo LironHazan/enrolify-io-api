@@ -27,4 +27,4 @@ const fetchStudentMiddleware = ({ dispatch, getState }) => (next) => async (acti
     next(action);
   }
 
-  export {fetchStudentMiddleware, saveStudentMiddleware};
+  export default [fetchStudentMiddleware, saveStudentMiddleware];
