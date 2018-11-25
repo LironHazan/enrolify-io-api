@@ -10,10 +10,15 @@ export const fetchStudents = () => ({
  * @param {Function} asyncFn
  * @param {*} sideEffects 
  */
-export const saveStudent = (payload, sideEffects) => ({
+export const saveStudent = (payload) => ({
     type: STUDENTS_SAVE_STUDENT.SOURCE,
+    payload
+});
+
+export const saveStudentSucess = (payload) => ({
+    type: STUDENTS_SAVE_STUDENT.SUCCESS,
     payload,
-    sideEffects
+    sideEffects: [toggleDialog(false), fetchStudents()]
 });
 
 // export const fetchStudents = () => {

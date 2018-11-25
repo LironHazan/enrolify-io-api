@@ -1,11 +1,12 @@
 import {saveStudents, fetchStudents} from '../../../components/back-office/students/students.service';
 import { types } from '../../types';
+import { saveStudentSucess } from './students.action';
 
 const saveStudentMiddleware = ({ dispatch, getState }) => (next) => async (action) => {
     if(action.type === types.STUDENTS_SAVE_STUDENT.SOURCE) {
         try {
         const done = await saveStudents(action.payload);
-        if (done) return dispatch({type: types.STUDENTS_SAVE_STUDENT.SUCCESS, payload: done});
+        if (done) return dispatch(saveStudentSucess(done));
         }
         catch (err) {
             dispatch({type: types.STUDENTS_SAVE_STUDENT.ERROR, payload: err.message || 'Error'})
