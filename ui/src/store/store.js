@@ -10,7 +10,7 @@ const configureStore = () =>
         logger,
         fetchStudentMiddleware,
         saveStudentMiddleware,
-        // asyncEffects
+        asyncEffects
         ));
 
 export { configureStore };

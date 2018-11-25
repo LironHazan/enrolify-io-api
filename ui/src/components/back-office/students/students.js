@@ -31,8 +31,7 @@ class Students extends React.Component {
     }
 
     onStudentAdd = (student) => (event) => {
-        this.props.saveStudentsAction(student,
-            [this.props.toggleDialog(false), this.props.fetchStudentsAction()]);
+        this.props.saveStudentsAction(student);
     };
 
     renderStudents = (students) => {
