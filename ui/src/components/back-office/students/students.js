@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import {
     fetchStudents as fetchStudentsAction,
     saveStudent as saveStudentsAction,
+    editStudent as editStudentAction,
     toggleDialog} from '../../../store/feature/students/students.action';
 import StudentsList  from './students-list'
 import StudentForm from "../forms/student-form";
@@ -65,6 +66,6 @@ class Students extends React.Component {
 
 export default connect( state => ({ //mapping state to props
     store: state.students,
-}), { fetchStudentsAction, saveStudentsAction, toggleDialog })(Students);
+}), { fetchStudentsAction, saveStudentsAction, toggleDialog, editStudentAction })(Students);
 
 

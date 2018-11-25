@@ -1,12 +1,12 @@
-import {saveStudents, fetchStudents} from '../../../components/back-office/students/students.service';
+import {saveStudents, fetchStudents, editStudents} from '../../../components/back-office/students/students.service';
 import { types } from '../../types';
-import { saveStudentSucess } from './students.action';
+import { saveStudentSuccess, editStudentSuccess } from './students.action';
 
 const saveStudentMiddleware = ({ dispatch, getState }) => (next) => async (action) => {
     if(action.type === types.STUDENTS_SAVE_STUDENT.SOURCE) {
         try {
         const done = await saveStudents(action.payload);
-        if (done) return dispatch(saveStudentSucess(done));
+        if (done) return dispatch(saveStudentSuccess(done));
         }
         catch (err) {
             dispatch({type: types.STUDENTS_SAVE_STUDENT.ERROR, payload: err.message || 'Error'})
@@ -14,6 +14,20 @@ const saveStudentMiddleware = ({ dispatch, getState }) => (next) => async (actio
     }
     next(action);
   }
+
+  const editStudentMiddleware = ({ dispatch, getState }) => (next) => async (action) => {
+    if(action.type === types.STUDENTS_EDIT_STUDENT.SOURCE) {
+        try {
+        const done = await editStudents(action.payload);
+        if (done) return dispatch(editStudentSuccess(done));
+        }
+        catch (err) {
+            dispatch({type: types.STUDENTS_EDIT_STUDENT.ERROR, payload: err.message || 'Error'})
+        }
+    }
+    next(action);
+  }
+
 const fetchStudentMiddleware = ({ dispatch, getState }) => (next) => async (action) => {
     if(action.type === types.STUDENTS_FETCH_ALL.SOURCE) {
         try {
@@ -27,4 +41,4 @@ const fetchStudentMiddleware = ({ dispatch, getState }) => (next) => async (acti
     next(action);
   }
 
-  export default [fetchStudentMiddleware, saveStudentMiddleware];
+  export default [fetchStudentMiddleware, saveStudentMiddleware, editStudentMiddleware];

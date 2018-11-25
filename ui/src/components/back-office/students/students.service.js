@@ -12,7 +12,18 @@ export const fetchStudents = async () => {
 
 export const saveStudents = async (student) => {
     try {
-        const result = await axios.post(`${API}/students/add`, student);
+        const result = await axios.post(`${API}/students/add`, {fname: student.fname, 
+            lname: student.lname, email: student.email, phone: student.phone});
+        if (result) return result.data;
+    } catch (err) {
+        return err.message;
+    }
+};
+
+export const editStudents = async (student) => {
+    try {
+        const result = await axios.post(`${API}/students/update`, {fname: student.fname, 
+            lname: student.lname, email: student.email, phone: student.phone});
         if (result) return result.data;
     } catch (err) {
         return err.message;

@@ -23,7 +23,6 @@ class StudentsList extends React.Component {
     };
 
     handleEditFormSubmit = (student) => (event) => {
-        event.preventDefault();
         this.props.editStudentAction(student);
     };
 

@@ -50,14 +50,14 @@ class StudentForm extends React.Component {
                         fullWidth
                         defaultValue={this.state.phone}
                         onBlur={this.handleChange('phone')}/>
-                    <TextField
+                    {/* <TextField
                         autoFocus
                         margin="dense"
                         name="bday"
                         type="date"
                         fullWidth
                         defaultValue={this.state.bday}
-                        onBlur={this.handleChange('bday')}/>
+                        onBlur={this.handleChange('bday')}/> */}
                 </label>
                 <DialogActions>
                     <Button onClick={this.props.handleFormSubmit(this.state)}>
