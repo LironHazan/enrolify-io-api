@@ -5,8 +5,9 @@ import { saveStudentSuccess, editStudentSuccess } from './students.action';
 const saveStudentMiddleware = ({ dispatch, getState }) => (next) => async (action) => {
     if(action.type === types.STUDENTS_SAVE_STUDENT.SOURCE) {
         try {
-        const done = await saveStudents(action.payload);
-        if (done) return dispatch(saveStudentSuccess(done));
+        const { data } = await saveStudents(action.payload);
+        console.log(data);
+        if (data) return dispatch(saveStudentSuccess());
         }
         catch (err) {
             dispatch({type: types.STUDENTS_SAVE_STUDENT.ERROR, payload: err.message || 'Error'})
@@ -18,8 +19,8 @@ const saveStudentMiddleware = ({ dispatch, getState }) => (next) => async (actio
   const editStudentMiddleware = ({ dispatch, getState }) => (next) => async (action) => {
     if(action.type === types.STUDENTS_EDIT_STUDENT.SOURCE) {
         try {
-        const done = await editStudents(action.payload);
-        if (done) return dispatch(editStudentSuccess(done));
+        await editStudents(action.payload);
+        return dispatch(editStudentSuccess());
         }
         catch (err) {
             dispatch({type: types.STUDENTS_EDIT_STUDENT.ERROR, payload: err.message || 'Error'})
@@ -31,8 +32,8 @@ const saveStudentMiddleware = ({ dispatch, getState }) => (next) => async (actio
 const fetchStudentMiddleware = ({ dispatch, getState }) => (next) => async (action) => {
     if(action.type === types.STUDENTS_FETCH_ALL.SOURCE) {
         try {
-        const response = await fetchStudents();
-        if (response) return dispatch({type: types.STUDENTS_FETCH_ALL.SUCCESS, payload: response});
+        const { data } = await fetchStudents();
+        if (data) return dispatch({type: types.STUDENTS_FETCH_ALL.SUCCESS, payload: data});
         }
         catch (err) {
             dispatch({type: types.STUDENTS_FETCH_ALL.ERROR, payload: err.message || 'Error'})
@@ -41,4 +42,11 @@ const fetchStudentMiddleware = ({ dispatch, getState }) => (next) => async (acti
     next(action);
   }
 
-  export default [fetchStudentMiddleware, saveStudentMiddleware, editStudentMiddleware];
+const destroyDialog = ({ dispatch, getState }) => (next) => (action) => {
+    if(action.type === types.STUDENTS_DIALOG_TOGGLE && !action.action) {
+        dispatch({type: types.STUDENTS_DIALOG_DESTROY, payload: ''});
+    }
+    next(action);
+  }
+
+  export default [fetchStudentMiddleware, saveStudentMiddleware, editStudentMiddleware, destroyDialog];

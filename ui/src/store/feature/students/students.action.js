@@ -9,9 +9,8 @@ export const saveStudent = (payload) => ({
     payload
 });
 
-export const saveStudentSuccess = (payload) => ({
+export const saveStudentSuccess = () => ({
     type: types.STUDENTS_SAVE_STUDENT.SUCCESS,
-    payload,
     sideEffects: [toggleDialog(false), fetchStudents()]
 });
 
@@ -20,13 +19,16 @@ export const editStudent = (payload) => ({
     payload
 });
 
-export const editStudentSuccess = (payload) => ({
+export const editStudentSuccess = () => ({
     type: types.STUDENTS_EDIT_STUDENT.SUCCESS,
-    payload,
-    sideEffects: [toggleDialog(false), fetchStudents()]
+    sideEffects: [fetchStudents()]
 });
 
 export const toggleDialog = (payload) => ({
     type: types.STUDENTS_DIALOG_TOGGLE,
+    payload
+});
+export const destroyDialog = (payload) => ({
+    type: types.STUDENTS_DIALOG_DESTROY,
     payload
 });
