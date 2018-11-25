@@ -13,23 +13,20 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 class Students extends React.Component {
+    state = {student: {fname: '', lname: '', email: '', phone: '', bday: ''}};
 
     componentDidMount() {
         this.props.fetchStudentsAction();
     }
 
-    handleOpen = () => {
+    handleOpen = (student = {fname: '', lname: '', email: '', phone: '', bday: ''}) => () => {
+        this.student = student;
         this.props.toggleDialog(true);
     };
 
     handleClose = () => {
         this.props.toggleDialog(false);
-        this.cleanupErr();
     };
-
-    cleanupErr() {
-        // this.props.setSaveStudentError({message: null});
-    }
 
     onStudentAdd = (student) => (event) => {
         this.props.saveStudentsAction(student);
@@ -39,14 +36,14 @@ class Students extends React.Component {
         return students.map(student =>
             (<StudentsList key={student._id}
                            student={student}
-                           editStudentAction={this.props.editStudentAction}/>))
+                           handleOpen={this.handleOpen}/>))
     };
 
     render() {
         const { open, error, students } = this.props.store;
         return (
             <div>
-                <Button onClick={this.handleOpen}> + Add new student</Button>
+                <Button onClick={this.handleOpen()}> + Add new student</Button>
                 { open && (<Dialog open={open}
                         onClose={this.handleClose}
                         aria-labelledby="form-dialog-title">
@@ -55,7 +52,7 @@ class Students extends React.Component {
                         {error && <div> {error} </div>}
                         <StudentForm handleFormSubmit={this.onStudentAdd}
                                      close={this.handleClose}
-                                     student={{fname: '', lname: '', email: '', phone: '', bday: ''}}/>
+                                     student={this.student}/>
                     </DialogContent>
                 </Dialog>) }
                     {students.length > 0 && this.renderStudents(students)}
@@ -64,8 +61,11 @@ class Students extends React.Component {
     }
 }
 
-export default connect( state => ({ //mapping state to props
+export default connect( state => ({ 
     store: state.students,
-}), { fetchStudentsAction, saveStudentsAction, toggleDialog, editStudentAction })(Students);
+}), { fetchStudentsAction, 
+    saveStudentsAction, 
+    toggleDialog, 
+    editStudentAction })(Students);
 
 

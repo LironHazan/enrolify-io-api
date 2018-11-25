@@ -1,3 +1,5 @@
+import { types } from '../../types';
+
 const INITIAL_STATE = {
     students: [],
     isFetching: false,
@@ -8,39 +10,35 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case "FETCH_STUDENTS":
-            return {
-                ...state,
-                students: [],
-                isFetching: true,
-                savingStudent: false
-            };
-        case "STUDENTS_FETCH_ALL_SUCCESS":
+        case types.STUDENTS_FETCH_ALL.SUCCESS:
             return {
                 ...state,
                 students: action.payload,
                 isFetching: false
             };
-        case "SAVE_STUDENT":
-            return {
-                ...state,
-                savingStudent: true
-            };
-        case "SAVE_STUDENT_ERROR":
+        case types.STUDENTS_SAVE_STUDENT.ERROR:
             return {
                 ...state,
                 savingStudent: false,
+                open: true,
                 error: action.payload
             };
-        case "EDIT_STUDENT":
+        case types.STUDENTS_EDIT_STUDENT.ERROR:
             return {
                 ...state,
-                savingStudent: true
+                savingStudent: false,
+                open: true,
+                error: action.payload
             };
-        case "STUDENTS_DIALOG_TOGGLE":
+        case types.STUDENTS_DIALOG_TOGGLE:
             return {
                 ...state,
                 open: action.payload,
+            };
+        case types.STUDENTS_DIALOG_DESTROY:
+            return {
+                ...state,
+                error: action.payload,
             };
         default: return state;
     }
