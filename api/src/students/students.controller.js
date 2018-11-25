@@ -26,14 +26,22 @@ module.exports = {
       .catch((err) => h.response({err}).code(403));
   },
 
-  updateStudent: (request, h) => {
+  updateStudent: async (request, h) => {
+    try {
         const result = schema.validate(request.payload);
-        if (result.error) {
-            return h.response({err: 'missing params'}).code(403);
+        console.log(result.error);
+        // if (result.error) {
+        //     return h.response({err: 'missing params'}).code(403);
+        // }
+
+        //todo: remove it:
+    
+            await Consumer.updateOne(result.value);
+            return h.response();
+        } catch(err) {
+            console.log(err);
+            return h.response({err}).code(403);
         }
-        return Consumer.update(result.value)
-            .then(() => h.response(result.value))
-            .catch((err) => h.response({err}));
     }
 
 };

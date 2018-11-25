@@ -9,9 +9,8 @@ const studentsModel = new Schema({
   fname: {type: String, required: true},
   lname: {type: String, required: true},
   email: {type: String, required: true},
-  subscriptionType: {type: String, required: false},
-  providerId: {type: Schema.Types.ObjectId, required: false},
-  subscriptionId: {type: Schema.Types.ObjectId, required: false}
+  phone: {type: String, required: false}
+  // bday: {type: Date, required: false}
 });
 
 module.exports = mongoose.model('Consumer', studentsModel, 'consumers');
