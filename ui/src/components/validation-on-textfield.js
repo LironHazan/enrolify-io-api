@@ -2,7 +2,7 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 
  const  textFieldWithValidations = (TextField) =>{
-    return class extends React.Component {
+    return class extends React.PureComponent {
       render() {
         return <TextField 
         required

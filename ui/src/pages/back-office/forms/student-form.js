@@ -23,7 +23,7 @@ class StudentForm extends React.Component {
                         type="text"
                         fullWidth
                         defaultValue={this.state.fname}
-                        onBlur={this.handleChange('fname')}/>
+                        onChange={this.handleChange('fname')}/>
                     <TextFieldWithValidations
                         autoFocus
                         margin="dense"
@@ -32,7 +32,7 @@ class StudentForm extends React.Component {
                         type="text"
                         fullWidth
                         defaultValue={this.state.lname}
-                        onBlur={this.handleChange('lname')}/>
+                        onChange={this.handleChange('lname')}/>
                     <TextFieldWithValidations
                         autoFocus
                         margin="dense"
@@ -40,7 +40,7 @@ class StudentForm extends React.Component {
                         label="Email Address"
                         type="email"
                         defaultValue={this.state.email}
-                        onBlur={this.handleChange('email')}
+                        onChange={this.handleChange('email')}
                         fullWidth/>
                     <TextFieldWithValidations
                         autoFocus
@@ -49,7 +49,7 @@ class StudentForm extends React.Component {
                         label="Phone number"
                         fullWidth
                         defaultValue={this.state.phone}
-                        onBlur={this.handleChange('phone')}/>
+                        onChange={this.handleChange('phone')}/>
                     {/* <TextField
                         autoFocus
                         margin="dense"
