@@ -21,7 +21,7 @@ export const editStudent = (payload) => ({
 
 export const editStudentSuccess = () => ({
     type: types.STUDENTS_EDIT_STUDENT.SUCCESS,
-    sideEffects: [fetchStudents()]
+    sideEffects: [toggleDialog(false), fetchStudents()]
 });
 
 export const toggleDialog = (payload) => ({

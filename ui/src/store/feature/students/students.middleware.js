@@ -1,4 +1,4 @@
-import {saveStudents, fetchStudents, editStudents} from '../../../components/back-office/students/students.service';
+import {saveStudents, fetchStudents, editStudents} from '../../../pages/back-office/students/students.service';
 import { types } from '../../types';
 import { saveStudentSuccess, editStudentSuccess } from './students.action';
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import DialogActions from '@material-ui/core/DialogActions';
 import PropTypes from 'prop-types';
+import TextFieldWithValidations from '../../../components/validation-on-textfield'
 
 class StudentForm extends React.Component {
     state = this.props.student;
@@ -13,9 +13,9 @@ class StudentForm extends React.Component {
 
     render () {
         return <div>
-            <form className="flex-col">
+            <form className="flex-col" onSubmit={this.props.handleFormSubmit(this.state)}>
                 <label className="item">
-                    <TextField
+                    <TextFieldWithValidations
                         autoFocus
                         margin="dense"
                         name="fname"
@@ -24,7 +24,7 @@ class StudentForm extends React.Component {
                         fullWidth
                         defaultValue={this.state.fname}
                         onBlur={this.handleChange('fname')}/>
-                    <TextField
+                    <TextFieldWithValidations
                         autoFocus
                         margin="dense"
                         name="lname"
@@ -33,7 +33,7 @@ class StudentForm extends React.Component {
                         fullWidth
                         defaultValue={this.state.lname}
                         onBlur={this.handleChange('lname')}/>
-                    <TextField
+                    <TextFieldWithValidations
                         autoFocus
                         margin="dense"
                         name="email"
@@ -42,7 +42,7 @@ class StudentForm extends React.Component {
                         defaultValue={this.state.email}
                         onBlur={this.handleChange('email')}
                         fullWidth/>
-                    <TextField
+                    <TextFieldWithValidations
                         autoFocus
                         margin="dense"
                         name="phone"
@@ -60,7 +60,7 @@ class StudentForm extends React.Component {
                         onBlur={this.handleChange('bday')}/> */}
                 </label>
                 <DialogActions>
-                    <Button onClick={this.props.handleFormSubmit(this.state)}>
+                    <Button type="submit">
                         Save
                     </Button>
                     <Button onClick={this.props.close} color="primary">

@@ -28,8 +28,9 @@ class Students extends React.Component {
         this.props.toggleDialog(false);
     };
 
-    onStudentAdd = (student) => (event) => {
-        this.props.saveStudentsAction(student);
+    onStudentFormSubmit = (student) => (event) => {
+        if (!student._id) return this.props.saveStudentsAction(student);
+        this.props.editStudentAction(student);
     };
 
     renderStudents = (students) => {
@@ -50,7 +51,7 @@ class Students extends React.Component {
                     <DialogTitle id="form-dialog-title">Student info</DialogTitle>
                     <DialogContent>
                         {error && <div> {error} </div>}
-                        <StudentForm handleFormSubmit={this.onStudentAdd}
+                        <StudentForm handleFormSubmit={this.onStudentFormSubmit}
                                      close={this.handleClose}
                                      student={this.student}/>
                     </DialogContent>
