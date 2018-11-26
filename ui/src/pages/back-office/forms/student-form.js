@@ -16,38 +16,26 @@ class StudentForm extends React.Component {
             <form className="flex-col" onSubmit={this.props.handleFormSubmit(this.state)}>
                 <label className="item">
                     <TextFieldWithValidations
-                        autoFocus
-                        margin="dense"
                         name="fname"
                         label="First Name"
                         type="text"
-                        fullWidth
                         defaultValue={this.state.fname}
                         onChange={this.handleChange('fname')}/>
                     <TextFieldWithValidations
-                        autoFocus
-                        margin="dense"
                         name="lname"
                         label="Last Name"
                         type="text"
-                        fullWidth
                         defaultValue={this.state.lname}
                         onChange={this.handleChange('lname')}/>
                     <TextFieldWithValidations
-                        autoFocus
-                        margin="dense"
                         name="email"
                         label="Email Address"
                         type="email"
                         defaultValue={this.state.email}
-                        onChange={this.handleChange('email')}
-                        fullWidth/>
+                        onChange={this.handleChange('email')}/>
                     <TextFieldWithValidations
-                        autoFocus
-                        margin="dense"
                         name="phone"
                         label="Phone number"
-                        fullWidth
                         defaultValue={this.state.phone}
                         onChange={this.handleChange('phone')}/>
                     {/* <TextField

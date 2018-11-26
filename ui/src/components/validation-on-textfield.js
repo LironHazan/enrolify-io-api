@@ -1,10 +1,17 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
+import classNames from 'classnames';
+import './components.scss'
 
  const  textFieldWithValidations = (TextField) =>{
     return class extends React.PureComponent {
       render() {
+        const classes = classNames({'err': this.props.err})
         return <TextField 
+        classNames={classes}
+        autoFocus
+        fullWidth
+        margin="dense"
         required
         {...this.props} />;
       }
