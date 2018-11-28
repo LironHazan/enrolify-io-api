@@ -8,7 +8,7 @@ const teacherModel = new Schema({
   lname: {type: String, required: true},
   companyName: {type: String, required: true},
   email: {type: String, required: true},
-  type: {type: String, required: true}
+  title: {type: String, required: true}
 });
 
-module.exports = mongoose.model('Provider', teacherModel, 'providers');
+module.exports = mongoose.model('Teacher', teacherModel, 'teachers');

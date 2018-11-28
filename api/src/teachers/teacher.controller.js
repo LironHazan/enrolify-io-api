@@ -1,11 +1,11 @@
-const Provider = require('./teacher.model');
+const Teacher = require('./teacher.model');
 const schema = require('./teacher');
 
 module.exports = {
 
   getTeacher: (request, h) => {
     const { query } = request;
-    return Provider.findById(query.id)
+    return Teacher.findById(query.id)
         .then(result => h.response({result}));
   },
 
@@ -14,7 +14,7 @@ module.exports = {
     if (result.error) {
       return h.response({err: 'missing params'}).code(400);
     }
-    return Provider.create(result.value)
+    return Teacher.create(result.value)
       .then((teacher) => h.response({teacher}))
       .catch((err) => h.response({err}));
   },
@@ -24,7 +24,7 @@ module.exports = {
       if (result.error) {
       return h.response({err: 'missing params'}).code(400);
     }
-    return Provider.update(result.value)
+    return Teacher.update(result.value)
       .then(() => h.response(result.value))
       .catch((err) => h.response({err}));
     }
