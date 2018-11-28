@@ -13,6 +13,8 @@
   "author": "Liron Hazan",
   "license": "MIT",
   "dependencies": {
+    "apollo-server-hapi": "^2.2.4",
+    "graphql": "^14.0.2",
     "hapi": "^17.5.2",
     "hapi-auth-jwt2": "github:salzhrani/hapi-auth-jwt2#v-17",
     "joi": "^13.4.0",

@@ -3,7 +3,7 @@ import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 
 const ProfileForm = () => (
-    <form className="form flex-col">
+    <form className="form flex-col" onSubmit={(event) => { event.preventDefault(); console.log('submit')}}>
         <label className="item">
             <div> Title </div>
             <Input placeholder="e.g. Yoga Tutor"/>
