@@ -8,14 +8,22 @@ const {
 		GraphQLSchema
 } = graphql;
 
-const RootQuery = new GraphQLObjectType({
-		name: 'RootQueryType',
+const RootTeachersQuery = new GraphQLObjectType({
+		name: 'RootTeachersQueryType',
 		fields: {
 				teacher: {
 						type: TeacherType,
 						args: { id: { type: GraphQLString } },
 						resolve(parent, args){
 								return Teacher.findById(args.id)
+						}
+				},
+				all: {
+						type: TeacherType,
+						args: {},
+						resolve() {
+							console.log('all');
+							return Teacher.find({})
 						}
 				},
 				add: {
@@ -31,5 +39,5 @@ const RootQuery = new GraphQLObjectType({
 });
 
 module.exports = new GraphQLSchema({
-		query: RootQuery
+		query: RootTeachersQuery
 });
