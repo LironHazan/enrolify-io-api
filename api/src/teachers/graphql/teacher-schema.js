@@ -17,6 +17,15 @@ const RootQuery = new GraphQLObjectType({
 						resolve(parent, args){
 								return Teacher.findById(args.id)
 						}
+				},
+				add: {
+						type: TeacherType,
+						args: { fname: { type: GraphQLString }, lname: { type: GraphQLString },
+								email: {type: GraphQLString}, title: {type: GraphQLString},
+								companyName: {type: GraphQLString} },
+						resolve(args){
+								return Teacher.create(args)
+						}
 				}
 		}
 });
