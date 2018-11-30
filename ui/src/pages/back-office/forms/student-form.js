@@ -19,6 +19,7 @@ class StudentForm extends React.Component {
                         name="fname"
                         label="First Name"
                         type="text"
+                        autoFocus
                         defaultValue={this.state.fname}
                         onChange={this.handleChange('fname')}/>
                     <TextFieldWithValidations

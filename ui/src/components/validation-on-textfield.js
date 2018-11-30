@@ -9,7 +9,6 @@ import './components.scss'
         const classes = classNames({'err': this.props.err})
         return <TextField 
         classNames={classes}
-        autoFocus
         fullWidth
         margin="dense"
         required
