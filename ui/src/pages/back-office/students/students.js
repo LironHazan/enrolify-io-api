@@ -17,7 +17,10 @@ class Students extends React.Component {
 
     componentDidMount() {
         this.props.fetchStudentsAction();
+        document.addEventListener('keydown', this.onKeyDown);
     }
+
+     onKeyDown = event => event.keyCode === 32 &&  event.preventDefault();
 
     handleOpen = (student = {fname: '', lname: '', email: '', phone: '', bday: ''}) => () => {
         this.student = student;
