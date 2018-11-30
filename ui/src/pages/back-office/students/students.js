@@ -48,7 +48,8 @@ class Students extends React.Component {
         return (
             <div>
                 <Button onClick={this.handleOpen()}> + Add new student</Button>
-                { open && (<Dialog open={open}
+                { open && 
+                (<Dialog open={open}
                         onClose={this.handleClose}
                         aria-labelledby="form-dialog-title">
                     <DialogTitle id="form-dialog-title">Student info</DialogTitle>
