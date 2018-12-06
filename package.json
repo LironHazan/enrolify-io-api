@@ -16,10 +16,5 @@
   "workspaces": [
     "api",
     "ui"
-  ],
-  "dependencies": {
-    "connected-react-router": "^5.0.1",
-    "history": "^4.7.2",
-    "save": "^2.3.2"
-  }
+  ]
 }
