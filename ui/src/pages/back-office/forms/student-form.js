@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import DialogActions from '@material-ui/core/DialogActions';
 import PropTypes from 'prop-types';
-import TextFieldWithValidations from '../../../components/validation-on-textfield'
+import TextFieldWithValidations from '../../../components/text-field/validation-on-textfield'
 
 class StudentForm extends React.Component {
     state = this.props.student;

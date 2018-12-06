@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import ProfileForm from "./forms/profile-form";
 import Students from "./students/students";
 
-const Home = () => (
+const Home = () => { 
+    return ( 
     <Router>
         <div>
             <h1> Hey username! </h1>
@@ -17,6 +18,6 @@ const Home = () => (
             <Route  path="/students" component={Students} />
         </div>
     </Router>
-);
+); }
 
 export default Home;

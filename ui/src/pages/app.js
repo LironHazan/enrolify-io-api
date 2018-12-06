@@ -1,15 +1,26 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { ThemeConsumer, ThemeProvider } from '../theme/theme-context';
+import Slider from '../components/slider/slider';
+import Home from './back-office/home';
 import './app.scss';
 
-import Home from './back-office/home';
-
 const App = ({ store }) => (
-    <Provider store={store}>
-        <div className="app">
-            <Home />
-        </div>
-    </Provider>
+    <ThemeProvider>
+        <ThemeConsumer>
+            {({ theme }) => (
+                <Provider store={store}>
+                    <main className="app">
+                        <section className={theme}>
+                            <Slider />
+                            <Home/>
+                        </section>
+                    </main>
+                </Provider>
+            )}
+        </ThemeConsumer>
+    </ThemeProvider>
+
 );
 
 export default App;
