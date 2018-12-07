@@ -17,13 +17,13 @@
   }
 
   .light {
-    color: black;
-    background-color: white;
+    color: var(--lightThemeText);
+    background-color: var(--lightThemeBackground);
   }
   
   .dark {
-    color: #5692e6;
-    background-color: #142b41;
+    color: var(--darkThemeText);
+    background-color: var(--darkThemeBackground);
   }
   
   .light, .dark {
