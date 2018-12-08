@@ -8,11 +8,11 @@ import './app.scss';
 const App = ({ store }) => (
     <ThemeProvider>
         <ThemeConsumer>
-            {({ theme }) => (
+            {({ theme, toggleTheme }) => (
                 <Provider store={store}>
                     <main className="app">
                         <section className={theme}>
-                            <Slider />
+                            <Slider toggleTheme={toggleTheme} theme={theme}/>
                             <Home/>
                         </section>
                     </main>
