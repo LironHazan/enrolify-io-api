@@ -8,7 +8,7 @@ import './textfield.scss'
       render() {
         const classes = classNames({'err': this.props.err})
         return <TextField 
-        classNames={classes}
+        className={classes}
         fullWidth
         margin="dense"
         required
