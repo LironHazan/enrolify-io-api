@@ -1,13 +1,13 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { ThemeConsumer, ThemeProvider } from '../theme/theme-context';
+import { ThemeContext, ThemeProvider } from '../theme/theme-context';
 import Slider from '../components/slider/slider';
 import Home from './back-office/home';
 import './app.scss';
 
 const App = ({ store }) => (
     <ThemeProvider>
-        <ThemeConsumer>
+        <ThemeContext.Consumer>
             {({ theme, toggleTheme }) => (
                 <Provider store={store}>
                     <main className="app">
@@ -18,7 +18,7 @@ const App = ({ store }) => (
                     </main>
                 </Provider>
             )}
-        </ThemeConsumer>
+        </ThemeContext.Consumer>
     </ThemeProvider>
 
 );

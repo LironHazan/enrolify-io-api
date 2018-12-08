@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export const ThemeContext = React.createContext()
-export const ThemeConsumer = ThemeContext.Consumer;
 
 export class ThemeProvider extends React.Component {
     toggleTheme = evt => {
